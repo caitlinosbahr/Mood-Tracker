@@ -75,22 +75,23 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="v1C-yu-hDj">
                             <connections>
-                                <segue destination="NBy-ab-ePp" kind="show" id="5lM-lh-B5q"/>
+                                <action selector="checkIn:" destination="BYZ-38-t0r" id="13r-yO-8Td"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="chartView" destination="2jt-DH-Has" id="2e2-my-ULr"/>
+                        <segue destination="NBy-ab-ePp" kind="show" identifier="checkinSegue" id="nbN-t9-OwE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1104" y="337"/>
+            <point key="canvasLocation" x="1350" y="337"/>
         </scene>
-        <!--View Controller-->
+        <!--Rating View Controller-->
         <scene sceneID="SD8-O5-nMT">
             <objects>
-                <viewController id="NBy-ab-ePp" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="NBy-ab-ePp" customClass="RatingViewController" customModule="Mood_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="36g-YF-GbQ"/>
                         <viewControllerLayoutGuide type="bottom" id="AXI-eS-WZ7"/>
@@ -99,7 +100,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pof-vO-5hh">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="pof-vO-5hh">
                                 <rect key="frame" x="14" y="285" width="572" height="31"/>
                                 <color key="minimumTrackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,42 +118,59 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hed-kF-VPN">
-                                <rect key="frame" x="483" y="333" width="101" height="100"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QnQ-uB-ECu">
-                                <rect key="frame" x="21" y="333" width="101" height="100"/>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terrible" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1O-V2-7Xs">
+                                <rect key="frame" x="16" y="323" width="56" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excellent" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNy-nO-Y5u">
+                                <rect key="frame" x="514" y="323" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="pof-vO-5hh" firstAttribute="top" secondItem="x1g-I1-unY" secondAttribute="bottom" constant="8" symbolic="YES" id="2Df-ax-2g9"/>
-                            <constraint firstItem="x1g-I1-unY" firstAttribute="leading" secondItem="pof-vO-5hh" secondAttribute="leading" id="CUf-cj-cdW"/>
-                            <constraint firstItem="AXI-eS-WZ7" firstAttribute="top" secondItem="pof-vO-5hh" secondAttribute="bottom" constant="285" id="D4r-Ph-R1d"/>
-                            <constraint firstItem="x1g-I1-unY" firstAttribute="leading" secondItem="I7e-mW-Q1t" secondAttribute="leadingMargin" id="L7S-7G-BbF"/>
-                            <constraint firstItem="x1g-I1-unY" firstAttribute="trailing" secondItem="pof-vO-5hh" secondAttribute="trailing" id="b2m-gu-sS4"/>
-                            <constraint firstItem="pof-vO-5hh" firstAttribute="centerY" secondItem="I7e-mW-Q1t" secondAttribute="centerY" id="b7D-ME-bfK"/>
-                            <constraint firstItem="x1g-I1-unY" firstAttribute="top" secondItem="36g-YF-GbQ" secondAttribute="bottom" constant="22" id="g1d-xg-VOW"/>
-                            <constraint firstItem="pof-vO-5hh" firstAttribute="trailing" secondItem="I7e-mW-Q1t" secondAttribute="trailingMargin" id="r2m-eQ-7Ux"/>
+                            <constraint firstItem="pof-vO-5hh" firstAttribute="top" secondItem="x1g-I1-unY" secondAttribute="bottom" constant="8" symbolic="YES" id="7Aa-ZB-x5E"/>
+                            <constraint firstItem="x1g-I1-unY" firstAttribute="leading" secondItem="I7e-mW-Q1t" secondAttribute="leadingMargin" id="AdM-kD-f7Q"/>
+                            <constraint firstItem="x1g-I1-unY" firstAttribute="top" secondItem="36g-YF-GbQ" secondAttribute="bottom" constant="22" id="B7J-DU-m9E"/>
+                            <constraint firstItem="a1O-V2-7Xs" firstAttribute="top" secondItem="pof-vO-5hh" secondAttribute="bottom" constant="8" symbolic="YES" id="KBJ-my-hdF"/>
+                            <constraint firstItem="pof-vO-5hh" firstAttribute="trailing" secondItem="oNy-nO-Y5u" secondAttribute="trailing" id="LaQ-oE-tq9"/>
+                            <constraint firstItem="pof-vO-5hh" firstAttribute="leading" secondItem="x1g-I1-unY" secondAttribute="leading" id="N06-2r-UuH"/>
+                            <constraint firstItem="AXI-eS-WZ7" firstAttribute="top" secondItem="a1O-V2-7Xs" secondAttribute="bottom" constant="256" id="S09-mo-UXT"/>
+                            <constraint firstItem="a1O-V2-7Xs" firstAttribute="baseline" secondItem="oNy-nO-Y5u" secondAttribute="baseline" id="TTl-fE-lkY"/>
+                            <constraint firstItem="a1O-V2-7Xs" firstAttribute="leading" secondItem="pof-vO-5hh" secondAttribute="leading" id="ZtX-xL-sj0"/>
+                            <constraint firstItem="x1g-I1-unY" firstAttribute="trailing" secondItem="pof-vO-5hh" secondAttribute="trailing" id="d6a-Zl-x1d"/>
+                            <constraint firstItem="pof-vO-5hh" firstAttribute="trailing" secondItem="I7e-mW-Q1t" secondAttribute="trailingMargin" id="k1K-Sf-aKh"/>
+                            <constraint firstItem="pof-vO-5hh" firstAttribute="centerY" secondItem="I7e-mW-Q1t" secondAttribute="centerY" id="ypU-Sl-All"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IhV-oU-eCD">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1Lw-N3-ELV"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1Lw-N3-ELV">
+                            <connections>
+                                <action selector="cancelRating:" destination="NBy-ab-ePp" id="C9Y-nu-xXh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="BBx-V5-T32">
                             <connections>
-                                <segue destination="A8Z-ir-26L" kind="show" id="G02-sB-YhR"/>
+                                <segue destination="A8Z-ir-26L" kind="show" identifier="addComment" id="G02-sB-YhR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ratingSlider" destination="pof-vO-5hh" id="u8X-E4-W24"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSV-UP-WVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2119" y="337"/>
         </scene>
-        <!--View Controller-->
+        <!--Comment View Controller-->
         <scene sceneID="2jV-m3-Ufq">
             <objects>
-                <viewController id="A8Z-ir-26L" sceneMemberID="viewController">
+                <viewController id="A8Z-ir-26L" customClass="CommentViewController" customModule="Mood_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b5e-EZ-hxA"/>
                         <viewControllerLayoutGuide type="bottom" id="heq-Qf-Tge"/>
@@ -161,13 +179,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="48" translatesAutoresizingMaskIntoConstraints="NO" id="0LI-UW-pwm">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="48" translatesAutoresizingMaskIntoConstraints="NO" id="0LI-UW-pwm">
                                 <rect key="frame" x="16" y="72" width="568" height="93"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctX-6I-8i0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctX-6I-8i0">
                                 <rect key="frame" x="16" y="98" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -175,23 +193,34 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="heq-Qf-Tge" firstAttribute="top" secondItem="0LI-UW-pwm" secondAttribute="bottom" constant="300" id="8WP-lw-wRs"/>
-                            <constraint firstItem="0LI-UW-pwm" firstAttribute="top" secondItem="b5e-EZ-hxA" secondAttribute="bottom" constant="143" id="pRp-EW-gut"/>
+                            <constraint firstItem="0LI-UW-pwm" firstAttribute="trailing" secondItem="Z0L-B2-UaR" secondAttribute="trailingMargin" id="D1g-Zk-9Gg"/>
+                            <constraint firstItem="0LI-UW-pwm" firstAttribute="trailing" secondItem="ctX-6I-8i0" secondAttribute="trailing" id="JHC-Bn-6wY"/>
+                            <constraint firstItem="ctX-6I-8i0" firstAttribute="leading" secondItem="0LI-UW-pwm" secondAttribute="leading" id="PfN-Ca-QQK"/>
+                            <constraint firstItem="0LI-UW-pwm" firstAttribute="top" secondItem="b5e-EZ-hxA" secondAttribute="bottom" constant="8" symbolic="YES" id="d4g-Ph-741"/>
+                            <constraint firstItem="0LI-UW-pwm" firstAttribute="leading" secondItem="Z0L-B2-UaR" secondAttribute="leadingMargin" id="pIz-E6-cYg"/>
+                            <constraint firstItem="heq-Qf-Tge" firstAttribute="top" secondItem="0LI-UW-pwm" secondAttribute="bottom" constant="435" id="tIH-CP-GQz"/>
+                            <constraint firstItem="ctX-6I-8i0" firstAttribute="top" secondItem="b5e-EZ-hxA" secondAttribute="bottom" constant="34" id="tuR-pd-1DD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kqT-wU-Xlt">
                         <barButtonItem key="backBarButtonItem" title=" " id="NXU-jI-HdR"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="sJx-Ef-Ohl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="sJx-Ef-Ohl">
+                            <connections>
+                                <action selector="saveMood:" destination="A8Z-ir-26L" id="LWj-3G-0rS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="commentText" destination="ctX-6I-8i0" id="hUd-9V-FtJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4J-3X-D0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3076" y="330"/>
+            <point key="canvasLocation" x="2876" y="337"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pz9-kC-loT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w0m-Dr-jQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LlV-3H-ikt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Szf-j2-oGT">
@@ -203,6 +232,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EAE-su-9S8"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w0m-Dr-jQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="381" y="337"/>
         </scene>

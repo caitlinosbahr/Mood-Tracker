@@ -1,12 +1,5 @@
-//
-//  ChartViewController.swift
-//  Mood Tracker
-//
-//  Created by Caitlin Osbahr on 4/27/15.
-//  Copyright (c) 2015 Caitlin Osbahr. All rights reserved.
-//
-
 import UIKit
+import Parse //Need to import here so we can read from the users previous ratings to present them
 
 class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimpleLineGraphDataSource {
 
@@ -17,6 +10,17 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     }
 
     @IBOutlet weak var chartView: BEMSimpleLineGraphView!
+    
+    @IBAction func checkIn(sender: AnyObject) {
+        self.performSegueWithIdentifier("checkinSegue", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "checkinSegue" {
+            println("segue will happen")
+        }
+    }
+    
     
     // SET UP FOR LINE GRAPH
 
@@ -30,16 +34,6 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         return CGFloat(10)
  
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     
 

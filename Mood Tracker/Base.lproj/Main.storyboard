@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Chart View Controller-->
@@ -18,30 +19,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jt-DH-Has" customClass="BEMSimpleLineGraphView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="385"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="rap-Mi-h16"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="KGZ-hz-bzJ"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJT-hj-7Js">
-                                <rect key="frame" x="16" y="461" width="568" height="119"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Comment label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="xJT-hj-7Js">
+                                <rect key="frame" x="141" y="440" width="319" height="58"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="119" id="hCh-qA-77W"/>
+                                    <constraint firstAttribute="height" constant="120" id="hCh-qA-77W"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hCh-qA-77W"/>
+                                    </mask>
+                                </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mood rating label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yP7-OX-Y0M">
-                                <rect key="frame" x="233" y="432" width="135" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Mood rating label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yP7-OX-Y0M">
+                                <rect key="frame" x="233" y="411" width="135" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWh-gT-z7U">
-                                <rect key="frame" x="262" y="403" width="77" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Date label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWh-gT-z7U">
+                                <rect key="frame" x="262" y="382" width="77" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -49,17 +55,17 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="xJT-hj-7Js" firstAttribute="top" secondItem="yP7-OX-Y0M" secondAttribute="bottom" constant="8" symbolic="YES" id="7kN-KA-ZTJ"/>
-                            <constraint firstItem="2jt-DH-Has" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8dM-Ix-TQQ"/>
-                            <constraint firstAttribute="bottom" secondItem="xJT-hj-7Js" secondAttribute="bottom" constant="20" symbolic="YES" id="A9t-9Z-1d9"/>
-                            <constraint firstItem="xJT-hj-7Js" firstAttribute="centerX" secondItem="yP7-OX-Y0M" secondAttribute="centerX" id="CHU-5V-6jz"/>
-                            <constraint firstAttribute="trailing" secondItem="2jt-DH-Has" secondAttribute="trailing" id="GaW-h9-ZiD"/>
-                            <constraint firstItem="yP7-OX-Y0M" firstAttribute="centerX" secondItem="TWh-gT-z7U" secondAttribute="centerX" id="Jox-JP-hT0"/>
-                            <constraint firstItem="2jt-DH-Has" firstAttribute="centerX" secondItem="TWh-gT-z7U" secondAttribute="centerX" id="Lbf-OH-YWs"/>
-                            <constraint firstItem="xJT-hj-7Js" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Mmu-wc-k1N"/>
+                            <constraint firstItem="2jt-DH-Has" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="4iT-zk-HTC"/>
+                            <constraint firstAttribute="centerX" secondItem="xJT-hj-7Js" secondAttribute="centerX" id="8jT-tO-V8A"/>
+                            <constraint firstItem="TWh-gT-z7U" firstAttribute="top" secondItem="2jt-DH-Has" secondAttribute="bottom" constant="18" id="AY6-3e-Fwn"/>
+                            <constraint firstAttribute="centerX" secondItem="yP7-OX-Y0M" secondAttribute="centerX" constant="-0.5" id="CnP-bC-7Ih"/>
+                            <constraint firstItem="2jt-DH-Has" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="HKw-co-bZi"/>
+                            <constraint firstAttribute="centerX" secondItem="TWh-gT-z7U" secondAttribute="centerX" constant="-0.5" id="J13-YL-m4J"/>
+                            <constraint firstItem="xJT-hj-7Js" firstAttribute="top" secondItem="yP7-OX-Y0M" secondAttribute="bottom" constant="8" id="PbW-gW-Y5F"/>
                             <constraint firstItem="yP7-OX-Y0M" firstAttribute="top" secondItem="TWh-gT-z7U" secondAttribute="bottom" constant="8" symbolic="YES" id="WmP-Cf-MMp"/>
-                            <constraint firstItem="TWh-gT-z7U" firstAttribute="top" secondItem="2jt-DH-Has" secondAttribute="bottom" constant="18" id="aOh-bl-H6Y"/>
-                            <constraint firstItem="2jt-DH-Has" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="muu-Cq-WJa"/>
+                            <constraint firstAttribute="centerX" secondItem="2jt-DH-Has" secondAttribute="centerX" id="obG-jL-PLg"/>
+                            <constraint firstItem="2jt-DH-Has" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="sXV-ti-XOF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xJT-hj-7Js" secondAttribute="bottom" constant="20" id="wLC-Ti-TsV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bwT-Yi-L9s">
@@ -81,6 +87,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="chartView" destination="2jt-DH-Has" id="2e2-my-ULr"/>
+                        <outlet property="commentLabel" destination="xJT-hj-7Js" id="cx3-Gc-Kny"/>
+                        <outlet property="dateLabel" destination="TWh-gT-z7U" id="dqs-WZ-ZKD"/>
+                        <outlet property="ratingLabel" destination="yP7-OX-Y0M" id="cP7-nB-ggR"/>
                         <segue destination="NBy-ab-ePp" kind="show" identifier="checkinSegue" id="nbN-t9-OwE"/>
                     </connections>
                 </viewController>

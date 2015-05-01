@@ -16,7 +16,6 @@ class RatingViewController: UIViewController {
     
     @IBOutlet weak var ratingSlider: UISlider!
     
-    
 
     // MARK: - Navigation
 

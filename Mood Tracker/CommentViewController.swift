@@ -6,7 +6,6 @@ class CommentViewController: UIViewController {
     var moods = [PFObject]()
     var passedInRating = Float()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,14 +21,17 @@ class CommentViewController: UIViewController {
         let comment = commentText.text
         mood["comment"] = comment
         
-        let rating = passedInRating //rating value needs to get passed from previous screen
+        let rating = passedInRating //rating value passed from previous screen
         mood["rating"] = rating
+        
+        
+        //TODO: add device ID = UIDevice.currentDevice().identifierForVendor.UUIDString
         
         mood.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if (success) {
                 println("Mood has been saved.")
             } else {
-                println("Error saving mood")
+                println("Error saving mood") //might want to figure out how to show an error on-screen
             }
         }
         

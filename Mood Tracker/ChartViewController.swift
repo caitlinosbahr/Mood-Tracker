@@ -10,24 +10,34 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
-
+    @IBOutlet weak var checkIn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkIn.layer.cornerRadius = 40
+        checkIn.layer.masksToBounds = true
+        
         loadMoods()
         beautifyGraph()
     }
     
     
-    // Segue to check-in
+    // Fancy segue to check-in
     
-    @IBAction func checkIn(sender: AnyObject) {
-        self.performSegueWithIdentifier("checkinSegue", sender: self)
+    var transition = QZCircleSegue()
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationViewController = segue.destinationViewController as! RatingViewController
+        self.transition.animationChild = checkIn
+        self.transition.animationColor = UIColor.blueColor()
+        self.transition.fromViewController = self
+        self.transition.toViewController = destinationViewController
+        destinationViewController.transitioningDelegate = transition
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if segue.identifier == "checkinSegue" {
-//            println("segue will happen")
-        }
+    @IBAction func unwindToMainViewController (sender: UIStoryboardSegue){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     

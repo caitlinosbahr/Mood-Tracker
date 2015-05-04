@@ -5,14 +5,7 @@ class RatingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-    @IBAction func cancelRating(sender: AnyObject) {
-        navigationController?.popViewControllerAnimated(true)
-    }
-
     
     @IBOutlet weak var ratingSlider: UISlider!
     
@@ -25,6 +18,8 @@ class RatingViewController: UIViewController {
             destinationVC.passedInRating = ratingSlider.value
         }
     }
-
-
+    
+    @IBAction func returnToRating(segue: UIStoryboardSegue) {
+        
+    }
 }

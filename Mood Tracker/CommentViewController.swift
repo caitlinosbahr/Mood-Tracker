@@ -6,16 +6,15 @@ class CommentViewController: UIViewController {
     var moods = [PFObject]()
     var passedInRating = Float()
     var user = String()
+    
+    @IBOutlet weak var commentText: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBOutlet weak var commentText: UITextField!
 
     @IBAction func saveMood(sender: AnyObject) {
-        
-        navigationController?.popToRootViewControllerAnimated(true) //how do I get the animation dismissing like a modal view?
         
         var mood = PFObject(className:"Moods")
         
@@ -35,7 +34,5 @@ class CommentViewController: UIViewController {
                 println("Error saving mood") //TODO: show a dialog that there was an error
             }
         }
-
     }
-
 }

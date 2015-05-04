@@ -1,7 +1,7 @@
 import UIKit
 import Parse
 
-class CommentViewController: UIViewController {
+class CommentViewController: UIViewController, UITextFieldDelegate {
     
     var moods = [PFObject]()
     var passedInRating = Float()
@@ -11,9 +11,9 @@ class CommentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        commentText.becomeFirstResponder()
     }
     
-
     @IBAction func saveMood(sender: AnyObject) {
         
         var mood = PFObject(className:"Moods")
@@ -31,7 +31,12 @@ class CommentViewController: UIViewController {
             if (success) {
                 println("Mood has been saved.")
             } else {
-                println("Error saving mood") //TODO: show a dialog that there was an error
+                println("Error saving mood")
+                
+                //Show alert to user
+                var alert = UIAlertController(title: "Sorry!", message: "Looks like we had a problem saving your mood.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         }
     }

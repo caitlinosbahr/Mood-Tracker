@@ -3,7 +3,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Chart View Controller-->
@@ -27,17 +26,18 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="ViS-da-ecW" secondAttribute="centerX" id="JHP-Va-hOk"/>
-                                    <constraint firstAttribute="centerY" secondItem="ViS-da-ecW" secondAttribute="centerY" id="cGM-vU-nNF"/>
+                                    <constraint firstItem="ViS-da-ecW" firstAttribute="centerX" secondItem="2jt-DH-Has" secondAttribute="centerX" id="2Fh-2D-V3N"/>
+                                    <constraint firstItem="ViS-da-ecW" firstAttribute="centerY" secondItem="2jt-DH-Has" secondAttribute="centerY" id="rdh-9Z-CTH"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="rap-Mi-h16"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="KGZ-hz-bzJ"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" text="Comment label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="xJT-hj-7Js">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Comment label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="xJT-hj-7Js">
                                 <rect key="frame" x="16" y="432" width="568" height="57"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="JNV-GG-ybn"/>
                                     <constraint firstAttribute="height" constant="120" id="hCh-qA-77W"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
@@ -61,9 +61,13 @@
                                 <color key="textColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-Ad-raD">
-                                <rect key="frame" x="256" y="490" width="90" height="90"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-Ad-raD">
+                                <rect key="frame" x="260" y="497" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="6j1-nu-eTH"/>
+                                    <constraint firstAttribute="width" constant="80" id="Bmc-oY-hNr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <state key="normal" title="+">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,19 +80,19 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="xJT-hj-7Js" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="3Jt-Tn-hlg"/>
-                            <constraint firstItem="2jt-DH-Has" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="4iT-zk-HTC"/>
-                            <constraint firstAttribute="centerX" secondItem="xJT-hj-7Js" secondAttribute="centerX" id="8jT-tO-V8A"/>
-                            <constraint firstItem="xJT-hj-7Js" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="AMZ-QP-X7m"/>
-                            <constraint firstItem="TWh-gT-z7U" firstAttribute="top" secondItem="2jt-DH-Has" secondAttribute="bottom" constant="18" id="AY6-3e-Fwn"/>
-                            <constraint firstAttribute="centerX" secondItem="yP7-OX-Y0M" secondAttribute="centerX" constant="-0.5" id="CnP-bC-7Ih"/>
-                            <constraint firstItem="2jt-DH-Has" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="HKw-co-bZi"/>
-                            <constraint firstAttribute="centerX" secondItem="TWh-gT-z7U" secondAttribute="centerX" constant="-0.5" id="J13-YL-m4J"/>
-                            <constraint firstItem="xJT-hj-7Js" firstAttribute="top" secondItem="yP7-OX-Y0M" secondAttribute="bottom" constant="8" id="PbW-gW-Y5F"/>
-                            <constraint firstItem="yP7-OX-Y0M" firstAttribute="top" secondItem="TWh-gT-z7U" secondAttribute="bottom" constant="8" symbolic="YES" id="WmP-Cf-MMp"/>
-                            <constraint firstAttribute="centerX" secondItem="2jt-DH-Has" secondAttribute="centerX" id="obG-jL-PLg"/>
-                            <constraint firstItem="2jt-DH-Has" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="sXV-ti-XOF"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xJT-hj-7Js" secondAttribute="bottom" constant="20" id="wLC-Ti-TsV"/>
+                            <constraint firstItem="2jt-DH-Has" firstAttribute="centerX" secondItem="yP7-OX-Y0M" secondAttribute="centerX" id="JWf-bn-Ugb"/>
+                            <constraint firstItem="yP7-OX-Y0M" firstAttribute="centerX" secondItem="xJT-hj-7Js" secondAttribute="centerX" id="KEI-zB-qk6"/>
+                            <constraint firstItem="2jt-DH-Has" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MI3-hm-L4G"/>
+                            <constraint firstItem="Jbj-Ad-raD" firstAttribute="centerX" secondItem="xJT-hj-7Js" secondAttribute="centerX" id="NRa-aY-hjL"/>
+                            <constraint firstItem="xJT-hj-7Js" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Pk3-va-ohL"/>
+                            <constraint firstItem="TWh-gT-z7U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="275" id="WCB-Um-26c"/>
+                            <constraint firstItem="TWh-gT-z7U" firstAttribute="top" secondItem="2jt-DH-Has" secondAttribute="bottom" constant="18" id="hbY-rU-Mb8"/>
+                            <constraint firstAttribute="trailing" secondItem="2jt-DH-Has" secondAttribute="trailing" id="mef-ZQ-bC9"/>
+                            <constraint firstItem="Jbj-Ad-raD" firstAttribute="top" secondItem="xJT-hj-7Js" secondAttribute="bottom" constant="8" symbolic="YES" id="qjc-Gj-1NH"/>
+                            <constraint firstItem="2jt-DH-Has" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="r5A-FV-JcS"/>
+                            <constraint firstItem="xJT-hj-7Js" firstAttribute="top" secondItem="yP7-OX-Y0M" secondAttribute="bottom" constant="8" symbolic="YES" id="tmc-ws-xJs"/>
+                            <constraint firstItem="yP7-OX-Y0M" firstAttribute="top" secondItem="TWh-gT-z7U" secondAttribute="bottom" constant="8" symbolic="YES" id="xSv-GP-Ir3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jbj-Ad-raD" secondAttribute="bottom" constant="23" id="xiX-e1-7qt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bwT-Yi-L9s">
@@ -211,6 +215,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="BBx-V5-T32"/>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="ratingSlider" destination="pof-vO-5hh" id="u8X-E4-W24"/>
                     </connections>
@@ -238,10 +243,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctX-6I-8i0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctX-6I-8i0">
                                 <rect key="frame" x="16" y="98" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="A8Z-ir-26L" id="Pvm-lb-qw9"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPP-J4-NC2">
                                 <rect key="frame" x="16" y="28" width="35" height="30"/>
@@ -254,12 +262,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxO-Jc-CPs">
-                                <rect key="frame" x="554" y="28" width="30" height="30"/>
-                                <state key="normal" title="Add">
+                                <rect key="frame" x="550" y="28" width="34" height="30"/>
+                                <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="saveMood:" destination="A8Z-ir-26L" eventType="touchUpInside" id="FSV-v0-sUI"/>
                                     <segue destination="pCL-yP-ALd" kind="unwind" unwindAction="unwindToMainViewController:" id="8GO-h0-AtJ"/>
                                 </connections>
                             </button>
@@ -288,6 +297,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="commentText" destination="ctX-6I-8i0" id="hUd-9V-FtJ"/>
                     </connections>

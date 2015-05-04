@@ -10,6 +10,7 @@
 		81267A93E9B6F64E1D548CBB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1333F378A73C501D91E63489 /* libPods.a */; };
 		982C5B201AF2AF33009D2924 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C5B1F1AF2AF33009D2924 /* RatingViewController.swift */; };
 		982C5B221AF2B015009D2924 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C5B211AF2B015009D2924 /* CommentViewController.swift */; };
+		986653B81AF7A2D6005C3787 /* QZCircleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986653B71AF7A2D6005C3787 /* QZCircleSegue.swift */; };
 		987D42A41AE6F3F50008624A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987D42A31AE6F3F50008624A /* AppDelegate.swift */; };
 		987D42A61AE6F3F50008624A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987D42A51AE6F3F50008624A /* ViewController.swift */; };
 		987D42A91AE6F3F50008624A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 987D42A71AE6F3F50008624A /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		43AC7E23CA826D2F91AB3D2A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		982C5B1F1AF2AF33009D2924 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		982C5B211AF2B015009D2924 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		986653B71AF7A2D6005C3787 /* QZCircleSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QZCircleSegue.swift; sourceTree = "<group>"; };
 		987D429E1AE6F3F50008624A /* Mood Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mood Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		987D42A21AE6F3F50008624A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		987D42A31AE6F3F50008624A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				982C5B211AF2B015009D2924 /* CommentViewController.swift */,
 				982C5B1F1AF2AF33009D2924 /* RatingViewController.swift */,
 				98BB8E921AEEB6740022B05E /* ChartViewController.swift */,
+				986653B71AF7A2D6005C3787 /* QZCircleSegue.swift */,
 				987D42AA1AE6F3F50008624A /* Images.xcassets */,
 				987D42AC1AE6F3F50008624A /* LaunchScreen.xib */,
 				987D42A11AE6F3F50008624A /* Supporting Files */,
@@ -284,6 +287,7 @@
 			files = (
 				982C5B221AF2B015009D2924 /* CommentViewController.swift in Sources */,
 				987D42A61AE6F3F50008624A /* ViewController.swift in Sources */,
+				986653B81AF7A2D6005C3787 /* QZCircleSegue.swift in Sources */,
 				982C5B201AF2AF33009D2924 /* RatingViewController.swift in Sources */,
 				987D42A41AE6F3F50008624A /* AppDelegate.swift in Sources */,
 				98BB8E931AEEB6740022B05E /* ChartViewController.swift in Sources */,

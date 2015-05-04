@@ -73,6 +73,19 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         self.chartView.enableReferenceAxisFrame = true
         self.chartView.reloadGraph()
     }
+    
+    func didTouchGraphWithClosestIndex(index: Int32) {
+        //Update labels here
+        
+//        something is broken :(
+//        dateLabel.text = String(moods[index].createdAt?.description)
+//        ratingLabel.text = String(moods[index]["rating"])
+//        commentLabel.text = String(moods[index]["comment"])
+    }
+    
+    func didReleaseGraphWithClosestIndex(index: Float) {
+        //Do something else to the labels
+    }
 
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView!) -> Int {
         return self.moods.count //TODO: this should return the appropriate number of points based on the segmented controller

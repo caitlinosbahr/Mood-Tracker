@@ -4,6 +4,7 @@ import Parse
 class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimpleLineGraphDataSource {
 
     var moods = [PFObject]()
+    let userID = UIDevice.currentDevice().identifierForVendor.UUIDString
     
     @IBOutlet weak var chartView: BEMSimpleLineGraphView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -31,12 +32,14 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     
     
     // Retrieve Parse data
+    //TODO: If no data points available, show a prompt
+    //TODO: Show a spinner before the chart loads. With the query this is now slow
     
     func loadMoods() {
         var query = PFQuery(className:"Moods")
         
-        //TODO: filter by device ID = UIDevice.currentDevice().identifierForVendor.UUIDString
-        
+        query.whereKey("user", equalTo: userID)
+
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objects = objects as? [PFObject] {
@@ -44,7 +47,8 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
                 }
                 self.chartView.reloadGraph()
             } else {
-                println("error loading moods") //TODO: If no data can be found, we should return something else in the UI
+                println("error loading moods") //TODO: show an error dialog
+
             }
         }
     }

@@ -22,6 +22,9 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         beautifyGraph()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        loadMoods() //Show latest data point after unwind
+    }
     
     // Fancy segue to check-in
     
@@ -56,9 +59,9 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
                     self.moods = objects
                 }
                 self.chartView.reloadGraph()
+                println("loaded moods")
             } else {
                 println("error loading moods") //TODO: show an error dialog
-
             }
         }
     }
@@ -87,7 +90,6 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         
         self.chartView.enableReferenceAxisFrame = true
         
-        self.chartView.reloadGraph()
     }
     
     
@@ -124,7 +126,7 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     }
 
     func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView!) -> Int {
-        return 25 //TODO: IDK what this does?
+        return 4
     }
     
     func minValueForLineGraph(graph: BEMSimpleLineGraphView!) -> CGFloat {

@@ -92,28 +92,36 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         
     }
     
-    
-    func didTouchGraphWithClosestIndex(index: Int32) {
-        //Update labels here
+    func lineGraph(graph: BEMSimpleLineGraphView!, didTouchGraphWithClosestIndex index: Int) {
         
-//        var mood = moods[index]
-//        
-//        dateLabel.text = mood.createdAt?.description as? String
-//        ratingLabel.text = mood["rating"] as? String
-//        commentLabel.text = mood["comment"] as? String
+        var mood = self.moods[index]
+        
+        var date = mood.createdAt!.description as String
+        var rating = mood["rating"] as? String
+        var comment = mood["comment"] as? String
+        
+        println(date)
+        println(rating)
+        println(comment)
+        
+        dateLabel.text = mood.createdAt!.description as String
+        ratingLabel.text = mood["rating"] as? String
+        commentLabel.text = mood["comment"] as? String
+
     }
     
-    
-    func didReleaseGraphWithClosestIndex(index: Float) {
-        //Do something else to the labels
+    func lineGraph(graph: BEMSimpleLineGraphView!, didReleaseTouchFromGraphWithClosestIndex index: CGFloat) {
+        //
     }
+    
 
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView!) -> Int {
         return self.moods.count //TODO: this should return the appropriate number of points based on the segmented controller
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView!, valueForPointAtIndex index: Int) -> CGFloat {
-        return self.moods[index]["rating"] as! CGFloat     }
+        return self.moods[index]["rating"] as! CGFloat
+    }
     
     func lineGraph(graph: BEMSimpleLineGraphView!, labelOnXAxisForIndex index: Int) -> String! {
 //        var dateFormatter = NSDateFormatter()

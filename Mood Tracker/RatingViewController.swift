@@ -9,6 +9,10 @@ class RatingViewController: UIViewController {
     
     @IBOutlet weak var ratingSlider: UISlider!
     
+    @IBAction func swipedBack(sender: AnyObject) {
+//        performSegueWithIdentifier("unwindToMain", sender: AnyObject?)
+        //TODO: GET THIS TO UNWIND
+    }
 
     // MARK: - Navigation
 
@@ -20,6 +24,5 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func returnToRating(segue: UIStoryboardSegue) {
-        
     }
 }

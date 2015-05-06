@@ -14,6 +14,12 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         commentText.becomeFirstResponder()
     }
     
+    @IBAction func swipedBack(sender: AnyObject) {
+//        performSegueWithIdentifier("unwindToRating", sender: AnyObject?)
+        //TODO: GET THIS TO UNWIND
+
+    }
+    
     @IBAction func saveMood(sender: AnyObject) {
         
         var mood = PFObject(className:"Moods")

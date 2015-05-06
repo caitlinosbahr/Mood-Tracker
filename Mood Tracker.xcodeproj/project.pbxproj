@@ -10,6 +10,11 @@
 		81267A93E9B6F64E1D548CBB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1333F378A73C501D91E63489 /* libPods.a */; };
 		982C5B201AF2AF33009D2924 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C5B1F1AF2AF33009D2924 /* RatingViewController.swift */; };
 		982C5B221AF2B015009D2924 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C5B211AF2B015009D2924 /* CommentViewController.swift */; };
+		98338F7B1AF99EE600F7AEC3 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98338F721AF99EE500F7AEC3 /* BEMSimpleLineGraphView.m */; };
+		98338F7C1AF99EE600F7AEC3 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 98338F741AF99EE500F7AEC3 /* BEMCircle.m */; };
+		98338F7D1AF99EE600F7AEC3 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 98338F761AF99EE500F7AEC3 /* BEMLine.m */; };
+		98338F7E1AF99EE600F7AEC3 /* BEMAverageLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 98338F781AF99EE500F7AEC3 /* BEMAverageLine.m */; };
+		98338F7F1AF99EE600F7AEC3 /* BEMPermanentPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98338F7A1AF99EE600F7AEC3 /* BEMPermanentPopupView.m */; };
 		986653B81AF7A2D6005C3787 /* QZCircleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986653B71AF7A2D6005C3787 /* QZCircleSegue.swift */; };
 		987D42A41AE6F3F50008624A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987D42A31AE6F3F50008624A /* AppDelegate.swift */; };
 		987D42A61AE6F3F50008624A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987D42A51AE6F3F50008624A /* ViewController.swift */; };
@@ -36,6 +41,16 @@
 		43AC7E23CA826D2F91AB3D2A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		982C5B1F1AF2AF33009D2924 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		982C5B211AF2B015009D2924 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		98338F711AF99EE500F7AEC3 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
+		98338F721AF99EE500F7AEC3 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
+		98338F731AF99EE500F7AEC3 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
+		98338F741AF99EE500F7AEC3 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
+		98338F751AF99EE500F7AEC3 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
+		98338F761AF99EE500F7AEC3 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMLine.m; sourceTree = "<group>"; };
+		98338F771AF99EE500F7AEC3 /* BEMAverageLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAverageLine.h; sourceTree = "<group>"; };
+		98338F781AF99EE500F7AEC3 /* BEMAverageLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAverageLine.m; sourceTree = "<group>"; };
+		98338F791AF99EE600F7AEC3 /* BEMPermanentPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMPermanentPopupView.h; sourceTree = "<group>"; };
+		98338F7A1AF99EE600F7AEC3 /* BEMPermanentPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMPermanentPopupView.m; sourceTree = "<group>"; };
 		986653B71AF7A2D6005C3787 /* QZCircleSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QZCircleSegue.swift; sourceTree = "<group>"; };
 		987D429E1AE6F3F50008624A /* Mood Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mood Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		987D42A21AE6F3F50008624A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +93,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		98338F701AF99ED500F7AEC3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				98338F711AF99EE500F7AEC3 /* BEMSimpleLineGraphView.h */,
+				98338F721AF99EE500F7AEC3 /* BEMSimpleLineGraphView.m */,
+				98338F731AF99EE500F7AEC3 /* BEMCircle.h */,
+				98338F741AF99EE500F7AEC3 /* BEMCircle.m */,
+				98338F751AF99EE500F7AEC3 /* BEMLine.h */,
+				98338F761AF99EE500F7AEC3 /* BEMLine.m */,
+				98338F771AF99EE500F7AEC3 /* BEMAverageLine.h */,
+				98338F781AF99EE500F7AEC3 /* BEMAverageLine.m */,
+				98338F791AF99EE600F7AEC3 /* BEMPermanentPopupView.h */,
+				98338F7A1AF99EE600F7AEC3 /* BEMPermanentPopupView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		987D42951AE6F3F50008624A = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +134,7 @@
 		987D42A01AE6F3F50008624A /* Mood Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				98338F701AF99ED500F7AEC3 /* Classes */,
 				987D42A31AE6F3F50008624A /* AppDelegate.swift */,
 				987D42A51AE6F3F50008624A /* ViewController.swift */,
 				987D42A71AE6F3F50008624A /* Main.storyboard */,
@@ -285,9 +318,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98338F7E1AF99EE600F7AEC3 /* BEMAverageLine.m in Sources */,
+				98338F7B1AF99EE600F7AEC3 /* BEMSimpleLineGraphView.m in Sources */,
 				982C5B221AF2B015009D2924 /* CommentViewController.swift in Sources */,
+				98338F7F1AF99EE600F7AEC3 /* BEMPermanentPopupView.m in Sources */,
 				987D42A61AE6F3F50008624A /* ViewController.swift in Sources */,
 				986653B81AF7A2D6005C3787 /* QZCircleSegue.swift in Sources */,
+				98338F7C1AF99EE600F7AEC3 /* BEMCircle.m in Sources */,
+				98338F7D1AF99EE600F7AEC3 /* BEMLine.m in Sources */,
 				982C5B201AF2AF33009D2924 /* RatingViewController.swift in Sources */,
 				987D42A41AE6F3F50008624A /* AppDelegate.swift in Sources */,
 				98BB8E931AEEB6740022B05E /* ChartViewController.swift in Sources */,

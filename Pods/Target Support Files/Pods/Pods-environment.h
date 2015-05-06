@@ -6,12 +6,6 @@
 // project.
 
 
-// BEMSimpleLineGraph
-#define COCOAPODS_POD_AVAILABLE_BEMSimpleLineGraph
-#define COCOAPODS_VERSION_MAJOR_BEMSimpleLineGraph 3
-#define COCOAPODS_VERSION_MINOR_BEMSimpleLineGraph 3
-#define COCOAPODS_VERSION_PATCH_BEMSimpleLineGraph 0
-
 // Bolts
 #define COCOAPODS_POD_AVAILABLE_Bolts
 #define COCOAPODS_VERSION_MAJOR_Bolts 1

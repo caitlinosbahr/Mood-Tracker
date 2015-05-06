@@ -19,12 +19,17 @@
     #import <CoreGraphics/CoreGraphics.h>
 #endif
 
+#import "BEMAverageLine.h"
+
+
 /// The type of animation used to display the graph
 typedef NS_ENUM(NSInteger, BEMLineAnimation) {
     /// The draw animation draws the lines from left to right and bottom to top.
     BEMLineAnimationDraw,
     /// The fade animation fades in the lines from 0% opaque to 100% opaque (based on the \p lineAlpha property).
     BEMLineAnimationFade,
+    /// The expand animation expands the lines from a small point to their full width (based on the \p lineWidth property).
+    BEMLineAnimationExpand,
     /// No animation is used to display the graph
     BEMLineAnimationNone
 };
@@ -63,6 +68,9 @@ typedef NS_ENUM(NSUInteger, BEMLineGradientDirection) {
 /// All of the X-Axis coordinates used to draw vertical lines through
 @property (nonatomic) NSArray *arrayOfVerticalRefrenceLinePoints;
 
+/// The value used to offset the fringe vertical reference lines when the x-axis labels are on the edge
+@property (assign, nonatomic) CGFloat verticalReferenceHorizontalFringeNegation;
+
 /// All of the Y-Axis coordinates used to draw horizontal lines through
 @property (nonatomic) NSArray *arrayOfHorizontalRefrenceLinePoints;
 
@@ -75,6 +83,30 @@ typedef NS_ENUM(NSUInteger, BEMLineGradientDirection) {
 
 /** Draw a thin, translucent, frame on the edge of the graph to separate it from the labels on the X-Axis and the Y-Axis. */
 @property (nonatomic) BOOL enableRefrenceFrame;
+
+/** If reference frames are enabled, this will enable/disable specific borders.  Default: YES */
+@property (nonatomic) BOOL enableLeftReferenceFrameLine;
+
+/** If reference frames are enabled, this will enable/disable specific borders.  Default: YES */
+@property (nonatomic) BOOL enableBottomReferenceFrameLine;
+
+/** If reference frames are enabled, this will enable/disable specific borders.  Default: NO */
+@property (nonatomic) BOOL enableRightReferenceFrameLine;
+
+/** If reference frames are enabled, this will enable/disable specific borders.  Default: NO */
+@property (nonatomic) BOOL enableTopReferenceFrameLine;
+
+/** Dash pattern for the references line on the X axis */
+@property (nonatomic, strong) NSArray *lineDashPatternForReferenceXAxisLines;
+
+/** Dash pattern for the references line on the Y axis */
+@property (nonatomic, strong) NSArray *lineDashPatternForReferenceYAxisLines;
+
+/** If a null value is present, interpolation would draw a best fit line through the null point bound by its surrounding points.  Default: YES */
+@property (nonatomic) BOOL interpolateNullValues;
+
+/** Draws everything but the main line on the graph; correlates to the \p displayDotsOnly property.  Default: NO */
+@property (nonatomic) BOOL disableMainLine;
 
 
 
@@ -95,10 +127,6 @@ typedef NS_ENUM(NSUInteger, BEMLineGradientDirection) {
 /// A color gradient applied to the area below the line, inside of its superview. If set, it will be drawn on top of the fill from the \p bottomColor property.
 @property (assign, nonatomic) CGGradientRef bottomGradient;
 
-@property (strong, nonatomic) UIColor *xAxisBackgroundColor;
-
-@property (nonatomic) CGFloat xAxisBackgroundAlpha;
-
 /// A color gradient to be applied to the line. If this property is set, it will mask (override) the \p color property.
 @property (assign, nonatomic) CGGradientRef lineGradient;
 
@@ -107,6 +135,8 @@ typedef NS_ENUM(NSUInteger, BEMLineGradientDirection) {
 
 /// The reference line color. Defaults to `color`.
 @property (strong, nonatomic) UIColor *refrenceLineColor;
+
+
 
 //----- ALPHA -----//
 
@@ -145,10 +175,13 @@ typedef NS_ENUM(NSUInteger, BEMLineGradientDirection) {
 
 
 
-//----- FRAME -----//
+//----- AVERAGE -----//
 
-/// The offset dependant on the size of the labels to create the frame
-@property (nonatomic) CGFloat frameOffset;
+/// The average line
+@property (strong, nonatomic) BEMAverageLine *averageLine;
+
+/// The average line's y-value translated into the coordinate system
+@property (nonatomic) CGFloat averageLineYCoordinate;
 
 
 

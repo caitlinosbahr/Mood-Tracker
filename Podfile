@@ -1,2 +1,2 @@
-pod 'BEMSimpleLineGraph'
+#pod 'BEMSimpleLineGraph'
 pod 'Parse'

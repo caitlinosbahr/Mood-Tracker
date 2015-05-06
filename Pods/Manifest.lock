@@ -1,5 +1,4 @@
 PODS:
-  - BEMSimpleLineGraph (3.3)
   - Bolts (1.1.5):
     - Bolts/AppLinks (= 1.1.5)
     - Bolts/Tasks (= 1.1.5)
@@ -10,11 +9,9 @@ PODS:
     - Bolts (~> 1.1)
 
 DEPENDENCIES:
-  - BEMSimpleLineGraph
   - Parse
 
 SPEC CHECKSUMS:
-  BEMSimpleLineGraph: 7fc92cd65a5f91640f6624b11be96fe1f3d7f1cf
   Bolts: aac24961496d504aa56fc267cde95162a71bac39
   Parse: fa8ec29de6d82035635986c11946299fb1b38316
 

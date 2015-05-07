@@ -22,9 +22,11 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         beautifyGraph()
     }
     
+    
     override func viewDidAppear(animated: Bool) {
         loadMoods() //Show latest data point after unwind
     }
+    
     
     // Fancy segue to check-in
     
@@ -39,14 +41,13 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         destinationViewController.transitioningDelegate = transition
     }
     
+    
     @IBAction func unwindToMainViewController (sender: UIStoryboardSegue){
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     // Retrieve Parse data
-    //TODO: If no data points available, show a prompt
-    //TODO: Show a spinner before the chart loads. With the query this is now slow
     
     func loadMoods() {
         var query = PFQuery(className:"Moods")
@@ -59,11 +60,18 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
                     self.moods = objects
                 }
                 self.chartView.reloadGraph()
-                println("loaded moods")
             } else {
-                println("error loading moods") //TODO: show an error dialog
+                println("error loading moods")
+
             }
         }
+    }
+    
+    
+    // If no data points available, show a prompt to add a mood
+    
+    func noDataLabelTextForLineGraph(graph: BEMSimpleLineGraphView) -> String {
+        return "Add a mood to get started"
     }
     
     
@@ -85,63 +93,65 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         self.chartView.colorBottom = UIColor.clearColor()
         self.chartView.colorTop = UIColor.blueColor()
         
+        self.chartView.noDataLabelColor = UIColor.redColor()
+        self.chartView.noDataLabelFont = UIFont (name: "Helvetica Neue", size: 30)!
+        
         self.chartView.enableTouchReport = true
-        self.chartView.enablePopUpReport = true //Is there a way to make this into a float vs. an int?
+        self.chartView.enablePopUpReport = false
         
         self.chartView.enableReferenceAxisFrame = true
         
     }
     
-    func lineGraph(graph: BEMSimpleLineGraphView!, didTouchGraphWithClosestIndex index: Int) {
+    
+    func lineGraph(graph: BEMSimpleLineGraphView, didTouchGraphWithClosestIndex index: Int) {
         
         var mood = self.moods[index]
         
         var date = mood.createdAt!.description as String
-        var rating = mood["rating"] as? String
+        var rating = mood["rating"] as? CGFloat
+        var ratingString = "\(rating!)"
         var comment = mood["comment"] as? String
         
-        println(date)
-        println(rating)
-        println(comment)
-        
-        dateLabel.text = mood.createdAt!.description as String
-        ratingLabel.text = mood["rating"] as? String
-        commentLabel.text = mood["comment"] as? String
+        dateLabel.text = date
+        ratingLabel.text = ratingString
+        commentLabel.text = comment
 
     }
     
-    func lineGraph(graph: BEMSimpleLineGraphView!, didReleaseTouchFromGraphWithClosestIndex index: CGFloat) {
+    
+    func lineGraph(graph: BEMSimpleLineGraphView, didReleaseTouchFromGraphWithClosestIndex index: CGFloat) {
         //
     }
     
 
-    func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView!) -> Int {
-        return self.moods.count //TODO: this should return the appropriate number of points based on the segmented controller
+    func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
+        return self.moods.count //TODO: this should return the appropriate number of points based on user input eventually
     }
     
-    func lineGraph(graph: BEMSimpleLineGraphView!, valueForPointAtIndex index: Int) -> CGFloat {
+    func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
         return self.moods[index]["rating"] as! CGFloat
     }
     
-    func lineGraph(graph: BEMSimpleLineGraphView!, labelOnXAxisForIndex index: Int) -> String! {
-//        var dateFormatter = NSDateFormatter()
-//        dateFormatter.dateStyle = .ShortStyle
-//        
-//        var dateLabel = String()
-//        dateLabel = dateFormatter.stringFromDate(NSDate(self.moods[index].createdAt?.description))
+    
+    func lineGraph(graph: BEMSimpleLineGraphView, labelOnXAxisForIndex index: Int) -> String {
         
-        return self.moods[index].createdAt?.description //TODO: Figure out a nicer way to present the date stamps
+        var mood = self.moods[index]
+        var date = mood.createdAt!.description as String //TODO: make date format prettier?
+        
+        return date
     }
 
-    func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView!) -> Int {
+
+    func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
         return 4
     }
     
-    func minValueForLineGraph(graph: BEMSimpleLineGraphView!) -> CGFloat {
+    func minValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
         return 1
     }
     
-    func maxValueForLineGraph(graph: BEMSimpleLineGraphView!) -> CGFloat {
+    func maxValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
         return 10
     }
 

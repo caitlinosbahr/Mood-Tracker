@@ -93,7 +93,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		98338F701AF99ED500F7AEC3 /* Classes */ = {
+		98338F701AF99ED500F7AEC3 /* BEM Line Graph */ = {
 			isa = PBXGroup;
 			children = (
 				98338F711AF99EE500F7AEC3 /* BEMSimpleLineGraphView.h */,
@@ -107,13 +107,15 @@
 				98338F791AF99EE600F7AEC3 /* BEMPermanentPopupView.h */,
 				98338F7A1AF99EE600F7AEC3 /* BEMPermanentPopupView.m */,
 			);
-			name = Classes;
+			name = "BEM Line Graph";
+			path = "Mood Tracker";
 			sourceTree = "<group>";
 		};
 		987D42951AE6F3F50008624A = {
 			isa = PBXGroup;
 			children = (
 				98BB8E911AEEB4AD0022B05E /* Mood-Tracker-Bridging-Header.h */,
+				98338F701AF99ED500F7AEC3 /* BEM Line Graph */,
 				987D42A01AE6F3F50008624A /* Mood Tracker */,
 				987D42B61AE6F3F50008624A /* Mood TrackerTests */,
 				987D429F1AE6F3F50008624A /* Products */,
@@ -134,7 +136,6 @@
 		987D42A01AE6F3F50008624A /* Mood Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				98338F701AF99ED500F7AEC3 /* Classes */,
 				987D42A31AE6F3F50008624A /* AppDelegate.swift */,
 				987D42A51AE6F3F50008624A /* ViewController.swift */,
 				987D42A71AE6F3F50008624A /* Main.storyboard */,

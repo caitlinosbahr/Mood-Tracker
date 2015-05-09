@@ -4,6 +4,9 @@ import Parse
 class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimpleLineGraphDataSource {
 
     var moods = [PFObject]()
+    var moodCount = Int()
+    var moodAverage = 0
+
     let userID = UIDevice.currentDevice().identifierForVendor.UUIDString
     
     @IBOutlet weak var chartView: BEMSimpleLineGraphView!
@@ -21,12 +24,7 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         
         loadMoods()
         beautifyGraph()
-        
-        dateLabel.text = ""
-        ratingLabel.text = "Average mood:"
-        commentLabel.text = "TBD"
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         loadMoods() //Update with latest data point after unwind
@@ -63,9 +61,25 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
             if error == nil {
                 if let objects = objects as? [PFObject] {
                     self.moods = objects
+                    self.chartView.reloadGraph() // This doesn't seem to be the right place to put this, but when I move it around I get more bugs
+                    
+                    query.countObjectsInBackgroundWithBlock { (count: Int32, error: NSError?) -> Void in
+                        if error == nil {
+                            var moodCount = count
+                            
+                            if count != 0 {
+                                
+                                // Add up all ratings
+                                // var moodAverage = sum / count
+                            }
+                            
+                            self.dateLabel.text = "\(moodCount) checkins"
+                            self.ratingLabel.text = "Average mood:"
+                            self.commentLabel.text = "\(self.moodAverage)"
+                        }
+                    }
                 }
-                self.chartView.reloadGraph()
-            } else { // Show alert
+            } else {
                 var alert = UIAlertController(title: "Whoops!", message: "Looks we're having some trouble finding your moods. Check back later.", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
@@ -81,11 +95,16 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     }
     
     
-    // Set up for BEM line graph
+    // Set up BEM line graph
     
     func beautifyGraph(){
+
         self.chartView.enableBezierCurve = true
         self.chartView.animationGraphStyle = BEMLineAnimation.Draw
+        
+        self.chartView.displayDotsWhileAnimating = true
+        self.chartView.alwaysDisplayDots = true
+        self.chartView.sizePoint = 10
         
         self.chartView.averageLine.enableAverageLine = true
         self.chartView.averageLine.alpha = 0.5
@@ -102,7 +121,6 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         self.chartView.noDataLabelFont = UIFont (name: "Avenir Book", size: 18)!
         
         self.chartView.enableTouchReport = true
-        
     }
     
     
@@ -125,19 +143,24 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         commentLabel.text = comment
     }
     
+    
     func lineGraph(graph: BEMSimpleLineGraphView, didReleaseTouchFromGraphWithClosestIndex index: CGFloat) {
-        dateLabel.text = ""
-        ratingLabel.text = "Average mood:"
-        commentLabel.text = "TBD"
+        
+        self.dateLabel.text = "\(moodCount) checkins" //BUG: This reverts to 0. Need to make the count accessible globally, not sure how without using loadMood here and having the chart refresh, which looks terrible
+        self.ratingLabel.text = "Average mood:"
+        self.commentLabel.text = "TBD"
     }
+    
     
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
         return self.moods.count
     }
     
+    
     func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
         return self.moods[index]["rating"] as! CGFloat
     }
+    
     
     func lineGraph(graph: BEMSimpleLineGraphView, labelOnXAxisForIndex index: Int) -> String {
         var mood = self.moods[index]
@@ -151,14 +174,17 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         
         return dateString
     }
+    
 
     func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
         return 1
     }
     
+    
     func minValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
         return 1
     }
+    
     
     func maxValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {
         return 10

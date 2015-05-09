@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-Ad-raD">
-                                <rect key="frame" x="534" y="20" width="50" height="50"/>
+                                <rect key="frame" x="534" y="25" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.10196078431372549" green="0.73725490196078436" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="R1J-ni-Jt9"/>
@@ -150,7 +150,7 @@
                             <constraint firstItem="yP7-OX-Y0M" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="a5J-bp-l0f"/>
                             <constraint firstAttribute="trailing" secondItem="2jt-DH-Has" secondAttribute="trailing" id="bF5-3q-SbK"/>
                             <constraint firstAttribute="centerX" secondItem="UfJ-0D-hPV" secondAttribute="centerX" constant="-1" id="eCz-1x-O3e"/>
-                            <constraint firstItem="Jbj-Ad-raD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hqe-pJ-nXL"/>
+                            <constraint firstItem="Jbj-Ad-raD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="hqe-pJ-nXL"/>
                             <constraint firstItem="UfJ-0D-hPV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="ky4-S3-pgD"/>
                             <constraint firstItem="2jt-DH-Has" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.65" constant="1" id="oWr-2i-fUC"/>
                             <constraint firstItem="TWh-gT-z7U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="tQp-ul-6Kj"/>
@@ -165,7 +165,6 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Moods" id="bwT-Yi-L9s"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="chartView" destination="2jt-DH-Has" id="2e2-my-ULr"/>

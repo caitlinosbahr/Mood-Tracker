@@ -55,7 +55,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         
         mood.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if (success) {
-                println("Mood has been saved.")
+                //save it
             } else {
                 //Show alert to user
                 var alert = UIAlertController(title: "Sorry!", message: "Looks like we had a problem saving your mood.", preferredStyle: UIAlertControllerStyle.Alert)

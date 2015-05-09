@@ -16,16 +16,20 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkIn.layer.cornerRadius = 30
+        checkIn.layer.cornerRadius = 25
         checkIn.layer.masksToBounds = true
         
         loadMoods()
         beautifyGraph()
+        
+        dateLabel.text = ""
+        ratingLabel.text = "Average mood:"
+        commentLabel.text = "TBD"
     }
     
     
-    override func viewDidAppear(animated: Bool) {
-        loadMoods() //Show latest data point after unwind
+    override func viewWillAppear(animated: Bool) {
+        loadMoods() //Update with latest data point after unwind
     }
     
     
@@ -71,9 +75,9 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     
     
     // If no data points available, show a prompt to add a mood
-    
+
     func noDataLabelTextForLineGraph(graph: BEMSimpleLineGraphView) -> String {
-        return "Add a mood to get started"
+        return "Add a mood to get started."
     }
     
     
@@ -81,25 +85,24 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     
     func beautifyGraph(){
         self.chartView.enableBezierCurve = true
+        self.chartView.animationGraphStyle = BEMLineAnimation.Draw
         
-//        self.chartView.enableYAxisLabel = true
-        self.chartView.autoScaleYAxis = true
-//        self.chartView.alwaysDisplayDots = true
-//        self.chartView.alphaLine = 1.0
-//        self.chartView.alphaTouchInputLine = 1.0
-//        self.chartView.widthLine = 3.0
+        self.chartView.averageLine.enableAverageLine = true
+        self.chartView.averageLine.alpha = 0.5
+        self.chartView.averageLine.width = 1
         
-        self.chartView.colorXaxisLabel = UIColor.blueColor()
-        self.chartView.colorYaxisLabel = UIColor.blueColor()
-        self.chartView.colorTouchInputLine = UIColor.whiteColor()
+        self.chartView.enableTopReferenceAxisFrameLine = true
         
-        self.chartView.noDataLabelColor = UIColor.redColor()
-        self.chartView.noDataLabelFont = UIFont (name: "Helvetica Neue", size: 30)!
+        self.chartView.enableXAxisLabel = true
+        self.chartView.colorXaxisLabel = UIColor.wetAsphaltColor()
+        
+        self.chartView.colorTouchInputLine = UIColor.wetAsphaltColor()
+        
+        self.chartView.noDataLabelColor = UIColor.whiteColor()
+        self.chartView.noDataLabelFont = UIFont (name: "Avenir Book", size: 36)!
         
         self.chartView.enableTouchReport = true
-        self.chartView.enablePopUpReport = false
         
-        self.chartView.enableReferenceAxisFrame = true
     }
     
     
@@ -107,42 +110,50 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         
         var mood = self.moods[index]
         
-        var date = mood.createdAt!.description as String
+        var date = mood.createdAt!
         var rating = mood["rating"] as? CGFloat
-        var ratingString = "\(rating!)"
         var comment = mood["comment"] as? String
         
-        dateLabel.text = date
-        ratingLabel.text = ratingString
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        formatter.timeStyle = .ShortStyle
+        
+        let dateString = formatter.stringFromDate(date)
+        
+        dateLabel.text = dateString
+        ratingLabel.text = "Rating: \(rating!)"
         commentLabel.text = comment
     }
     
-    
     func lineGraph(graph: BEMSimpleLineGraphView, didReleaseTouchFromGraphWithClosestIndex index: CGFloat) {
-        //
+        dateLabel.text = ""
+        ratingLabel.text = "Average mood:"
+        commentLabel.text = "TBD"
     }
     
-
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return self.moods.count //TODO: this should return the appropriate number of points based on user input eventually
+        return self.moods.count
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
         return self.moods[index]["rating"] as! CGFloat
     }
     
-    
     func lineGraph(graph: BEMSimpleLineGraphView, labelOnXAxisForIndex index: Int) -> String {
-        
         var mood = self.moods[index]
-        var date = mood.createdAt!.description as String //TODO: make date format prettier?
+        var date = mood.createdAt!
         
-        return date
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        formatter.timeStyle = .ShortStyle
+        
+        let dateString = formatter.stringFromDate(date)
+        
+        return dateString
     }
 
-
     func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return 4
+        return 1
     }
     
     func minValueForLineGraph(graph: BEMSimpleLineGraphView) -> CGFloat {

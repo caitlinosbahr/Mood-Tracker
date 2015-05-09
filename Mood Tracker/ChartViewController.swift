@@ -99,7 +99,7 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         self.chartView.colorTouchInputLine = UIColor.wetAsphaltColor()
         
         self.chartView.noDataLabelColor = UIColor.whiteColor()
-        self.chartView.noDataLabelFont = UIFont (name: "Avenir Book", size: 36)!
+        self.chartView.noDataLabelFont = UIFont (name: "Avenir Book", size: 18)!
         
         self.chartView.enableTouchReport = true
         

@@ -52,7 +52,7 @@ class QZCircleSegue: NSObject, UIViewControllerAnimatedTransitioning, UIViewCont
             bottomViewController.view.addSubview(circularView)
             
             UIView.animateWithDuration(0.3, animations: { () -> Void in
-                let scale:CGFloat = 12
+                let scale:CGFloat = 20
                 circularView.transform = CGAffineTransformMakeScale(scale, scale)
                 circularView.center = animationPoint
                 }) { (Finished) -> Void in
@@ -68,7 +68,7 @@ class QZCircleSegue: NSObject, UIViewControllerAnimatedTransitioning, UIViewCont
             self.offStageMenuController(newViewController, fromViewController: bottomViewController)
             
             UIView.animateWithDuration(0.3, animations: { () -> Void in
-                let scale:CGFloat = -12
+                let scale:CGFloat = -20
                 circularView.transform = CGAffineTransformMakeScale(1, 1)
                 circularView.center = animationPoint
                 }) { (Finished) -> Void in

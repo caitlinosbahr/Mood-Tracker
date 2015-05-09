@@ -2,10 +2,6 @@ import UIKit
 import Parse
 
 class RatingViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     @IBOutlet weak var ratingSlider: UISlider!
     

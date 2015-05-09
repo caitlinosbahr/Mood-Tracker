@@ -8,15 +8,19 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
     var user = String()
     
     @IBOutlet weak var commentText: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         commentText.becomeFirstResponder()
+//        saveButton.enabled = false //how do I enable this when something is in th text box
+        commentText.delegate = self
     }
+    
     
     @IBAction func swipedBack(sender: AnyObject) {
 //        performSegueWithIdentifier("unwindToRating", sender: AnyObject?)
-        //TODO: GET THIS TO UNWIND
+        //TODO: Get this to unwind :(
 
     }
     
@@ -29,16 +33,15 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         
         let rating = passedInRating 
         mood["rating"] = rating
-            
+        
         let user = UIDevice.currentDevice().identifierForVendor.UUIDString
         mood["user"] = user
+        
         
         mood.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if (success) {
                 println("Mood has been saved.")
             } else {
-                println("Error saving mood")
-                
                 //Show alert to user
                 var alert = UIAlertController(title: "Sorry!", message: "Looks like we had a problem saving your mood.", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))

@@ -12,10 +12,11 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var checkIn: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkIn.layer.cornerRadius = 40
+        checkIn.layer.cornerRadius = 30
         checkIn.layer.masksToBounds = true
         
         loadMoods()
@@ -35,7 +36,7 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController as! RatingViewController
         self.transition.animationChild = checkIn
-        self.transition.animationColor = UIColor.blueColor()
+        self.transition.animationColor = UIColor.greenSeaColor()
         self.transition.fromViewController = self
         self.transition.toViewController = destinationViewController
         destinationViewController.transitioningDelegate = transition
@@ -60,9 +61,10 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
                     self.moods = objects
                 }
                 self.chartView.reloadGraph()
-            } else {
-                println("error loading moods")
-
+            } else { // Show alert
+                var alert = UIAlertController(title: "Whoops!", message: "Looks we're having some trouble finding your moods. Check back later.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         }
     }
@@ -90,8 +92,6 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         self.chartView.colorXaxisLabel = UIColor.blueColor()
         self.chartView.colorYaxisLabel = UIColor.blueColor()
         self.chartView.colorTouchInputLine = UIColor.whiteColor()
-        self.chartView.colorBottom = UIColor.clearColor()
-        self.chartView.colorTop = UIColor.blueColor()
         
         self.chartView.noDataLabelColor = UIColor.redColor()
         self.chartView.noDataLabelFont = UIFont (name: "Helvetica Neue", size: 30)!
@@ -100,7 +100,6 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         self.chartView.enablePopUpReport = false
         
         self.chartView.enableReferenceAxisFrame = true
-        
     }
     
     
@@ -116,7 +115,6 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         dateLabel.text = date
         ratingLabel.text = ratingString
         commentLabel.text = comment
-
     }
     
     

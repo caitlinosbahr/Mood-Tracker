@@ -15,6 +15,7 @@
 		98338F7D1AF99EE600F7AEC3 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 98338F761AF99EE500F7AEC3 /* BEMLine.m */; };
 		98338F7E1AF99EE600F7AEC3 /* BEMAverageLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 98338F781AF99EE500F7AEC3 /* BEMAverageLine.m */; };
 		98338F7F1AF99EE600F7AEC3 /* BEMPermanentPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98338F7A1AF99EE600F7AEC3 /* BEMPermanentPopupView.m */; };
+		983F11B41AFC320E00B2AACA /* flatuicolors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F11B31AFC320E00B2AACA /* flatuicolors.swift */; };
 		986653B81AF7A2D6005C3787 /* QZCircleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986653B71AF7A2D6005C3787 /* QZCircleSegue.swift */; };
 		987D42A41AE6F3F50008624A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987D42A31AE6F3F50008624A /* AppDelegate.swift */; };
 		987D42A61AE6F3F50008624A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987D42A51AE6F3F50008624A /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		98338F781AF99EE500F7AEC3 /* BEMAverageLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAverageLine.m; sourceTree = "<group>"; };
 		98338F791AF99EE600F7AEC3 /* BEMPermanentPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMPermanentPopupView.h; sourceTree = "<group>"; };
 		98338F7A1AF99EE600F7AEC3 /* BEMPermanentPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMPermanentPopupView.m; sourceTree = "<group>"; };
+		983F11B31AFC320E00B2AACA /* flatuicolors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flatuicolors.swift; sourceTree = "<group>"; };
 		986653B71AF7A2D6005C3787 /* QZCircleSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QZCircleSegue.swift; sourceTree = "<group>"; };
 		987D429E1AE6F3F50008624A /* Mood Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mood Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		987D42A21AE6F3F50008624A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		987D42B31AE6F3F50008624A /* Mood TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mood TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		987D42B81AE6F3F50008624A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		987D42B91AE6F3F50008624A /* Mood_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood_TrackerTests.swift; sourceTree = "<group>"; };
-		98BB8E911AEEB4AD0022B05E /* Mood-Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mood-Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
+		98BB8E911AEEB4AD0022B05E /* Mood-Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Mood-Tracker-Bridging-Header.h"; path = "../Mood-Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		98BB8E921AEEB6740022B05E /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,9 +116,8 @@
 		987D42951AE6F3F50008624A = {
 			isa = PBXGroup;
 			children = (
-				98BB8E911AEEB4AD0022B05E /* Mood-Tracker-Bridging-Header.h */,
-				98338F701AF99ED500F7AEC3 /* BEM Line Graph */,
 				987D42A01AE6F3F50008624A /* Mood Tracker */,
+				98338F701AF99ED500F7AEC3 /* BEM Line Graph */,
 				987D42B61AE6F3F50008624A /* Mood TrackerTests */,
 				987D429F1AE6F3F50008624A /* Products */,
 				BFD010DB0F52B10A0B04D196 /* Pods */,
@@ -136,12 +137,14 @@
 		987D42A01AE6F3F50008624A /* Mood Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				98BB8E911AEEB4AD0022B05E /* Mood-Tracker-Bridging-Header.h */,
 				987D42A31AE6F3F50008624A /* AppDelegate.swift */,
 				987D42A51AE6F3F50008624A /* ViewController.swift */,
 				987D42A71AE6F3F50008624A /* Main.storyboard */,
 				982C5B211AF2B015009D2924 /* CommentViewController.swift */,
 				982C5B1F1AF2AF33009D2924 /* RatingViewController.swift */,
 				98BB8E921AEEB6740022B05E /* ChartViewController.swift */,
+				983F11B31AFC320E00B2AACA /* flatuicolors.swift */,
 				986653B71AF7A2D6005C3787 /* QZCircleSegue.swift */,
 				987D42AA1AE6F3F50008624A /* Images.xcassets */,
 				987D42AC1AE6F3F50008624A /* LaunchScreen.xib */,
@@ -323,6 +326,7 @@
 				98338F7B1AF99EE600F7AEC3 /* BEMSimpleLineGraphView.m in Sources */,
 				982C5B221AF2B015009D2924 /* CommentViewController.swift in Sources */,
 				98338F7F1AF99EE600F7AEC3 /* BEMPermanentPopupView.m in Sources */,
+				983F11B41AFC320E00B2AACA /* flatuicolors.swift in Sources */,
 				987D42A61AE6F3F50008624A /* ViewController.swift in Sources */,
 				986653B81AF7A2D6005C3787 /* QZCircleSegue.swift in Sources */,
 				98338F7C1AF99EE600F7AEC3 /* BEMCircle.m in Sources */,

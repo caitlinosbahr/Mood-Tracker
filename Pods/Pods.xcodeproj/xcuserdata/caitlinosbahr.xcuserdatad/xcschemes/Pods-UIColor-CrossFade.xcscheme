@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B32B4EEA580BAFCA4C34629C"
-               BuildableName = "libPods-Bolts.a"
-               BlueprintName = "Pods-Bolts"
+               BlueprintIdentifier = "2022BDA9237D52A7C0D560BB"
+               BuildableName = "libPods-UIColor-CrossFade.a"
+               BlueprintName = "Pods-UIColor-CrossFade"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-UIColor-CrossFade.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>B851A7C097DD638F85A9EF80</key>
+		<key>2022BDA9237D52A7C0D560BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C01D2961F88E6C1FD5C2B3A5</key>
+		<key>B32B4EEA580BAFCA4C34629C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA04F4DD6ED50D634BDD5DDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

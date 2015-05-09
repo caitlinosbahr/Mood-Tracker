@@ -5,10 +5,20 @@ class RatingViewController: UIViewController {
     
     @IBOutlet weak var ratingSlider: UISlider!
     
-    @IBAction func swipedBack(sender: AnyObject) {
-//        performSegueWithIdentifier("unwindToMain", sender: AnyObject?)
-        //TODO: GET THIS TO UNWIND
+    @IBAction func sliderChanged(sender: AnyObject) {
+        
+        //Trying to use pod UIColor+CrossFade and failing
+        var colorA = UIColor.wetAsphaltColor()
+        var colorB = UIColor.turquoiseColor()
+        
+        var sliderRatio = self.ratingSlider.value/10
+                
+//        var crossFade: UIColor = UIColor.colorsForFadeBetweenFirstColor(colorA, lastColor: colorB, atRatio: sliderRatio)
+        
+//        self.view.backgroundColor = crossFade
+        
     }
+    
 
     // MARK: - Navigation
 
@@ -21,4 +31,10 @@ class RatingViewController: UIViewController {
     
     @IBAction func returnToRating(segue: UIStoryboardSegue) {
     }
+    
+    @IBAction func swipedBack(sender: AnyObject) {
+        //        performSegueWithIdentifier("unwindToMain", sender: AnyObject?)
+        //TODO: GET THIS TO UNWIND
+    }
+    
 }

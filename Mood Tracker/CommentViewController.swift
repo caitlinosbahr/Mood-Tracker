@@ -13,16 +13,31 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         commentText.becomeFirstResponder()
-//        saveButton.enabled = false //how do I enable this when something is in th text box
         commentText.delegate = self
+
+        saveButton.enabled = false
+        saveButton.alpha = 0.5
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "textFieldTextChanged:", name:UITextFieldTextDidChangeNotification, object: nil)
+    }
+    
+    
+    func textFieldTextChanged(sender : AnyObject) {
+        if commentText.text == "" {
+            saveButton.enabled = false
+        } else {
+            saveButton.enabled = true
+            saveButton.alpha = 1.0
+        }
     }
     
     
     @IBAction func swipedBack(sender: AnyObject) {
 //        performSegueWithIdentifier("unwindToRating", sender: AnyObject?)
         //TODO: Get this to unwind :(
-
     }
+
     
     @IBAction func saveMood(sender: AnyObject) {
         

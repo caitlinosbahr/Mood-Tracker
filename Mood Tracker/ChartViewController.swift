@@ -24,8 +24,12 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         
         loadMoods()
         beautifyGraph()
+        
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
     
     override func viewWillAppear(animated: Bool) {
         loadMoods() //Update with latest data point after unwind

@@ -13,19 +13,20 @@ class RatingViewController: UIViewController {
         view.addGestureRecognizer(screenEdgeRecognizer)
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
     
+    //Trying to use pod UIColor+CrossFade and failing
+
     @IBAction func sliderChanged(sender: AnyObject) {
-        
-        //Trying to use pod UIColor+CrossFade and failing
         var colorA = UIColor.wetAsphaltColor()
         var colorB = UIColor.turquoiseColor()
         
         var sliderRatio = self.ratingSlider.value/10
-                
 //        var crossFade: UIColor = UIColor.colorsForFadeBetweenFirstColor(colorA, lastColor: colorB, atRatio: sliderRatio)
         
 //        self.view.backgroundColor = crossFade
-        
     }
     
 
@@ -44,7 +45,5 @@ class RatingViewController: UIViewController {
     
     @IBAction func returnToRating(segue: UIStoryboardSegue) {
     }
-    
-
     
 }

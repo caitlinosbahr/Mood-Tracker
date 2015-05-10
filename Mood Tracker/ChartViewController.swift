@@ -15,7 +15,7 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var checkIn: UIButton!
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +25,7 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         loadMoods()
         beautifyGraph()
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         loadMoods() //Update with latest data point after unwind
@@ -54,10 +55,12 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     
     func loadMoods() {
         var query = PFQuery(className:"Moods")
+        query.cachePolicy = .CacheElseNetwork
         
         query.whereKey("user", equalTo: userID)
 
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+        query.findObjectsInBackgroundWithBlock
+            { (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objects = objects as? [PFObject] {
                     self.moods = objects
@@ -67,11 +70,17 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
                         if error == nil {
                             var moodCount = count
                             
+                            /*
                             if count != 0 {
-                                
-                                // Add up all ratings
-                                // var moodAverage = sum / count
+                                //how do i get all of the ratings from Parse? confused
+                                var sum = 0
+                                for rating in ratings {
+                                    sum += rating
+                                }
+                                var moodAverage = sum/count
                             }
+                            
+                            */
                             
                             self.dateLabel.text = "\(moodCount) checkins"
                             self.ratingLabel.text = "Average mood:"
@@ -87,12 +96,7 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         }
     }
     
-    
-    // If no data points available, show a prompt to add a mood
 
-    func noDataLabelTextForLineGraph(graph: BEMSimpleLineGraphView) -> String {
-        return "Add a mood to get started."
-    }
     
     
     // Set up BEM line graph
@@ -123,6 +127,12 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         self.chartView.enableTouchReport = true
     }
     
+    
+    // If no data points available, show a prompt to add a mood
+    
+    func noDataLabelTextForLineGraph(graph: BEMSimpleLineGraphView) -> String {
+        return "Add a mood to get started."
+    }
     
     func lineGraph(graph: BEMSimpleLineGraphView, didTouchGraphWithClosestIndex index: Int) {
         

@@ -19,8 +19,22 @@ class RatingViewController: UIViewController {
         
     }
     
+    // Adding screen edge pan recognizer
+    
+    var screenEdgeRecognizer: UIScreenEdgePanGestureRecognizer!
+    
+    override func viewDidLoad() {
+        screenEdgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "swipedBack")
+        screenEdgeRecognizer.edges = .Left
+        view.addGestureRecognizer(screenEdgeRecognizer)
+    }
+    
 
     // MARK: - Navigation
+    
+    func swipedBack(){
+        performSegueWithIdentifier("unwindToMain", sender: self)
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "addComment" {
@@ -32,9 +46,6 @@ class RatingViewController: UIViewController {
     @IBAction func returnToRating(segue: UIStoryboardSegue) {
     }
     
-    @IBAction func swipedBack(sender: AnyObject) {
-        //        performSegueWithIdentifier("unwindToMain", sender: AnyObject?)
-        //TODO: GET THIS TO UNWIND
-    }
+
     
 }

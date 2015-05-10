@@ -235,6 +235,7 @@
 				TargetAttributes = {
 					987D429D1AE6F3F50008624A = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = PNSA4ZXA3C;
 					};
 					987D42B21AE6F3F50008624A = {
 						CreatedOnToolsVersion = 6.3;
@@ -459,6 +460,7 @@
 			baseConfigurationReference = 43AC7E23CA826D2F91AB3D2A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Mood Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -471,6 +473,7 @@
 			baseConfigurationReference = 0B5807993481AF5210B6E7FD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Mood Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

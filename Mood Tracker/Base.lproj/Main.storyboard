@@ -287,9 +287,6 @@
                                 <exclude reference="kxz-OF-R0I"/>
                             </mask>
                         </variation>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="osH-Th-X7W" appends="YES" id="wQm-LJ-jEJ"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="IhV-oU-eCD">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1Lw-N3-ELV">
@@ -306,12 +303,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSV-UP-WVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1ka-H8-7tO" userLabel="Exit" sceneMemberID="exit"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="osH-Th-X7W">
-                    <rectEdge key="edges" left="YES"/>
-                    <connections>
-                        <action selector="swipedBack:" destination="NBy-ab-ePp" id="ysH-T9-mS8"/>
-                    </connections>
-                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2119" y="337"/>
         </scene>
@@ -353,7 +344,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="pCL-yP-ALd" kind="unwind" unwindAction="returnToRating:" id="djH-HD-g85"/>
+                                    <segue destination="pCL-yP-ALd" kind="unwind" identifier="returnToRating" unwindAction="returnToRating:" id="djH-HD-g85"/>
                                 </connections>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLK-jj-857" userLabel="Stroke">
@@ -393,7 +384,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="saveMood:" destination="A8Z-ir-26L" eventType="touchUpInside" id="FSV-v0-sUI"/>
-                                    <segue destination="pCL-yP-ALd" kind="unwind" unwindAction="unwindToMainViewController:" id="8GO-h0-AtJ"/>
+                                    <segue destination="pCL-yP-ALd" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMainViewController:" id="8GO-h0-AtJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -439,9 +430,6 @@
                                 <exclude reference="SsN-Rz-fM7"/>
                             </mask>
                         </variation>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="nTj-jm-70S" appends="YES" id="1cx-DC-NBi"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="kqT-wU-Xlt">
                         <barButtonItem key="backBarButtonItem" title=" " id="NXU-jI-HdR"/>
@@ -459,12 +447,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4J-3X-D0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pCL-yP-ALd" userLabel="Exit" sceneMemberID="exit"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="nTj-jm-70S">
-                    <rectEdge key="edges" left="YES"/>
-                    <connections>
-                        <action selector="swipedBack:" destination="A8Z-ir-26L" id="7wa-Io-nJ2"/>
-                    </connections>
-                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2876" y="337"/>
         </scene>

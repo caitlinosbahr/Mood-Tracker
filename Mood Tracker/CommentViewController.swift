@@ -6,6 +6,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
     var moods = [PFObject]()
     var passedInRating = Float()
     var user = String()
+    var screenEdgeRecognizer: UIScreenEdgePanGestureRecognizer!
     
     @IBOutlet weak var commentText: UITextField!
     @IBOutlet weak var saveButton: UIButton!
@@ -20,6 +21,10 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "textFieldTextChanged:", name:UITextFieldTextDidChangeNotification, object: nil)
+        
+        screenEdgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "swipedBackToRating")
+        screenEdgeRecognizer.edges = .Left
+        view.addGestureRecognizer(screenEdgeRecognizer)
     }
     
     
@@ -33,9 +38,10 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func swipedBack(sender: AnyObject) {
-//        performSegueWithIdentifier("unwindToRating", sender: AnyObject?)
-        //TODO: Get this to unwind :(
+    // MARK: - Navigation
+    
+    func swipedBackToRating(){
+        performSegueWithIdentifier("returnToRating", sender: self)
     }
 
     

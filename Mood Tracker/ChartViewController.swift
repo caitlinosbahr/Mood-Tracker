@@ -5,7 +5,7 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
 
     var moods = [PFObject]()
     var moodCount = Int()
-    var moodAverage = 0
+    var moodAverage = 0.0
 
     let userID = UIDevice.currentDevice().identifierForVendor.UUIDString
     
@@ -55,7 +55,6 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     
     func loadMoods() {
         var query = PFQuery(className:"Moods")
-        query.cachePolicy = .CacheElseNetwork
         
         query.whereKey("user", equalTo: userID)
 
@@ -67,24 +66,23 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
                     self.chartView.reloadGraph() // This doesn't seem to be the right place to put this, but when I move it around I get more bugs
                     
                     query.countObjectsInBackgroundWithBlock { (count: Int32, error: NSError?) -> Void in
-                        if error == nil {
-                            var moodCount = count
+                        if error == nil && count > 0 {
                             
-                            /*
-                            if count != 0 {
-                                //how do i get all of the ratings from Parse? confused
-                                var sum = 0
-                                for rating in ratings {
-                                    sum += rating
-                                }
-                                var moodAverage = sum/count
+                            var ratingTotal = 0
+                            
+                            for mood in self.moods {
+                                ratingTotal += mood["rating"] as! Int
                             }
                             
-                            */
+                            self.moodAverage = Double(ratingTotal)/Double(self.moods.count)
                             
-                            self.dateLabel.text = "\(moodCount) checkins"
+                            self.dateLabel.text = "\(self.moods.count) checkins"
                             self.ratingLabel.text = "Average mood:"
                             self.commentLabel.text = "\(self.moodAverage)"
+                        } else {
+                            self.dateLabel.text = "\(self.moods.count) checkins"
+                            self.ratingLabel.text = "Not enough moods to calculate average."
+                            self.commentLabel.text = "Tell me how you feel."
                         }
                     }
                 }
@@ -156,9 +154,9 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     
     func lineGraph(graph: BEMSimpleLineGraphView, didReleaseTouchFromGraphWithClosestIndex index: CGFloat) {
         
-        self.dateLabel.text = "\(moodCount) checkins" //BUG: This reverts to 0. Need to make the count accessible globally, not sure how without using loadMood here and having the chart refresh, which looks terrible
+        self.dateLabel.text = "\(self.moods.count) checkins"
         self.ratingLabel.text = "Average mood:"
-        self.commentLabel.text = "TBD"
+        self.commentLabel.text = "\(self.moodAverage)"
     }
     
     

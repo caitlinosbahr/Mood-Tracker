@@ -5,6 +5,15 @@ class RatingViewController: UIViewController {
     
     @IBOutlet weak var ratingSlider: UISlider!
     
+    var screenEdgeRecognizer: UIScreenEdgePanGestureRecognizer!
+    
+    override func viewDidLoad() {
+        screenEdgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "swipedBack")
+        screenEdgeRecognizer.edges = .Left
+        view.addGestureRecognizer(screenEdgeRecognizer)
+    }
+    
+    
     @IBAction func sliderChanged(sender: AnyObject) {
         
         //Trying to use pod UIColor+CrossFade and failing
@@ -17,16 +26,6 @@ class RatingViewController: UIViewController {
         
 //        self.view.backgroundColor = crossFade
         
-    }
-    
-    // Adding screen edge pan recognizer
-    
-    var screenEdgeRecognizer: UIScreenEdgePanGestureRecognizer!
-    
-    override func viewDidLoad() {
-        screenEdgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "swipedBack")
-        screenEdgeRecognizer.edges = .Left
-        view.addGestureRecognizer(screenEdgeRecognizer)
     }
     
 

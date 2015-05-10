@@ -6,7 +6,7 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
     var moods = [PFObject]()
     var passedInRating = Float()
     var user = String()
-    var screenEdgeRecognizer: UIScreenEdgePanGestureRecognizer!
+    var commentScreenEdgeRecognizer: UIScreenEdgePanGestureRecognizer!
     
     @IBOutlet weak var commentText: UITextField!
     @IBOutlet weak var saveButton: UIButton!
@@ -22,9 +22,9 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "textFieldTextChanged:", name:UITextFieldTextDidChangeNotification, object: nil)
         
-        screenEdgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "swipedBackToRating")
-        screenEdgeRecognizer.edges = .Left
-        view.addGestureRecognizer(screenEdgeRecognizer)
+        commentScreenEdgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "swipedBackToRating")
+        commentScreenEdgeRecognizer.edges = .Left
+        view.addGestureRecognizer(commentScreenEdgeRecognizer)
     }
     
     

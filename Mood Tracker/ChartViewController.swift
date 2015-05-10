@@ -14,7 +14,7 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var checkIn: UIButton!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +25,20 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
         loadMoods()
         beautifyGraph()
         
+        dateLabel.text = ""
+        ratingLabel.text = ""
+        commentLabel.text = ""
+        
+        activityIndicator.startAnimating()        
     }
+    
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
     
     override func viewWillAppear(animated: Bool) {
-        loadMoods() //Update with latest data point after unwind
+        loadMoods()
     }
     
     
@@ -55,19 +61,19 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     }
     
     
-    // Retrieve Parse data
+    // Retrieve Parse data & calculate average
     
     func loadMoods() {
         var query = PFQuery(className:"Moods")
         
         query.whereKey("user", equalTo: userID)
+        query.cachePolicy = .NetworkElseCache
 
-        query.findObjectsInBackgroundWithBlock
-            { (objects: [AnyObject]?, error: NSError?) -> Void in
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objects = objects as? [PFObject] {
                     self.moods = objects
-                    self.chartView.reloadGraph() // This doesn't seem to be the right place to put this, but when I move it around I get more bugs
+                    self.chartView.reloadGraph()
                     
                     query.countObjectsInBackgroundWithBlock { (count: Int32, error: NSError?) -> Void in
                         if error == nil && count > 0 {
@@ -85,21 +91,21 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
                             self.commentLabel.text = "\(self.moodAverage)"
                         } else {
                             self.dateLabel.text = "\(self.moods.count) checkins"
-                            self.ratingLabel.text = "Not enough moods to calculate average."
+                            self.ratingLabel.text = "Not enough moods to calculate average"
                             self.commentLabel.text = "Tell me how you feel."
                         }
                     }
                 }
             } else {
-                var alert = UIAlertController(title: "Whoops!", message: "Looks we're having some trouble finding your moods. Check back later.", preferredStyle: UIAlertControllerStyle.Alert)
+                var alert = UIAlertController(title: "Whoops!", message: "We're having some trouble finding your moods. Check back later.", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.alpha = 0
         }
     }
-    
 
-    
     
     // Set up BEM line graph
     

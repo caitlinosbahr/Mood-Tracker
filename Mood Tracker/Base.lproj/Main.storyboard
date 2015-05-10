@@ -21,11 +21,12 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-Ad-raD">
                                 <rect key="frame" x="534" y="25" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.10196078431372549" green="0.73725490196078436" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.28627450980392155" green="0.72549019607843135" blue="0.58039215686274515" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="R1J-ni-Jt9"/>
                                     <constraint firstAttribute="width" constant="50" id="ypw-4C-Lgs"/>
                                 </constraints>
+                                <color key="tintColor" red="0.28627450980392155" green="0.72549019607843135" blue="0.58039215686274515" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="add">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -134,6 +135,9 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="KGZ-hz-bzJ"/>
                                 </connections>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="g7F-bF-z9z">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -142,8 +146,10 @@
                             <constraint firstAttribute="width" secondItem="2jt-DH-Has" secondAttribute="width" id="3hd-CA-QrK"/>
                             <constraint firstItem="xJT-hj-7Js" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="87L-hC-cyx"/>
                             <constraint firstItem="2jt-DH-Has" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="C6z-8y-jUU"/>
+                            <constraint firstAttribute="centerY" secondItem="g7F-bF-z9z" secondAttribute="centerY" id="C9S-ou-acT"/>
                             <constraint firstAttribute="width" secondItem="2jt-DH-Has" secondAttribute="width" id="Cg9-7d-x98"/>
                             <constraint firstItem="TWh-gT-z7U" firstAttribute="top" secondItem="xJT-hj-7Js" secondAttribute="bottom" id="JAf-5q-tmt"/>
+                            <constraint firstAttribute="centerX" secondItem="g7F-bF-z9z" secondAttribute="centerX" id="LPB-SB-NvV"/>
                             <constraint firstItem="yP7-OX-Y0M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="OuC-zC-dhz"/>
                             <constraint firstItem="TWh-gT-z7U" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="R6n-un-AeK"/>
                             <constraint firstItem="2jt-DH-Has" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Vgk-kU-qfw"/>
@@ -167,6 +173,7 @@
                     <navigationItem key="navigationItem" title="Moods" id="bwT-Yi-L9s"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="g7F-bF-z9z" id="STC-qY-dd1"/>
                         <outlet property="chartView" destination="2jt-DH-Has" id="2e2-my-ULr"/>
                         <outlet property="checkIn" destination="Jbj-Ad-raD" id="vxN-Vo-DN2"/>
                         <outlet property="commentLabel" destination="xJT-hj-7Js" id="cx3-Gc-Kny"/>
@@ -383,7 +390,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="saveMood:" destination="A8Z-ir-26L" eventType="touchUpInside" id="FSV-v0-sUI"/>
-                                    <segue destination="pCL-yP-ALd" kind="unwind" identifier="unwindToMain" unwindAction="unwindToMainViewController:" id="8GO-h0-AtJ"/>
+                                    <segue destination="pCL-yP-ALd" kind="unwind" unwindAction="unwindToMainViewController:" id="ne0-6x-31f"/>
                                 </connections>
                             </button>
                         </subviews>

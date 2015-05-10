@@ -27,6 +27,11 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(commentScreenEdgeRecognizer)
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        view.removeGestureRecognizer(commentScreenEdgeRecognizer)
+    }
+    
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }

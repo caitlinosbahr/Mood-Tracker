@@ -4,14 +4,15 @@ import Parse
 class RatingViewController: UIViewController {
     
     @IBOutlet weak var ratingSlider: UISlider!
-    
     var screenEdgeRecognizer: UIScreenEdgePanGestureRecognizer!
-    
+
     override func viewDidLoad() {
+
         screenEdgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "swipedBack")
         screenEdgeRecognizer.edges = .Left
         view.addGestureRecognizer(screenEdgeRecognizer)
     }
+    
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent

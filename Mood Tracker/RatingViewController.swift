@@ -19,19 +19,19 @@ class RatingViewController: UIViewController {
     }
     
     
-    /*
+    
     //Trying to use pod UIColor+CrossFade and failing
 
     @IBAction func sliderChanged(sender: AnyObject) {
-        var colorA = UIColor.wetAsphaltColor()
-        var colorB = UIColor.turquoiseColor()
-        
-        var sliderRatio = self.ratingSlider.value/10
-        var crossFade: UIColor = UIColor.colorsForFadeBetweenFirstColor(colorA, lastColor: colorB, atRatio: sliderRatio)
-        
-        self.view.backgroundColor = crossFade
+//        var colorA = UIColor.wetAsphaltColor()
+//        var colorB = UIColor.turquoiseColor()
+//        
+//        var sliderRatio = self.ratingSlider.value/10
+//        var crossFade: UIColor = UIColor.colorsForFadeBetweenFirstColor(colorA, lastColor: colorB, atRatio: sliderRatio)
+//        
+//        self.view.backgroundColor = crossFade
     }
-    */
+    
     
 
     // MARK: - Navigation

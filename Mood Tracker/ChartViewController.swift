@@ -15,6 +15,7 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var checkIn: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class ChartViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimp
     }
     
     
-    // Fancy segue to check-in
+    // MARK: - Navigation
     
     var transition = QZCircleSegue()
     

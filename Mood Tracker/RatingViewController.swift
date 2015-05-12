@@ -6,8 +6,8 @@ class RatingViewController: UIViewController {
     @IBOutlet weak var ratingSlider: UISlider!
     var screenEdgeRecognizer: UIScreenEdgePanGestureRecognizer!
 
+    
     override func viewDidLoad() {
-
         screenEdgeRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "swipedBack")
         screenEdgeRecognizer.edges = .Left
         view.addGestureRecognizer(screenEdgeRecognizer)
@@ -18,6 +18,8 @@ class RatingViewController: UIViewController {
         return UIStatusBarStyle.LightContent
     }
     
+    
+    /*
     //Trying to use pod UIColor+CrossFade and failing
 
     @IBAction func sliderChanged(sender: AnyObject) {
@@ -25,10 +27,11 @@ class RatingViewController: UIViewController {
         var colorB = UIColor.turquoiseColor()
         
         var sliderRatio = self.ratingSlider.value/10
-//        var crossFade: UIColor = UIColor.colorsForFadeBetweenFirstColor(colorA, lastColor: colorB, atRatio: sliderRatio)
+        var crossFade: UIColor = UIColor.colorsForFadeBetweenFirstColor(colorA, lastColor: colorB, atRatio: sliderRatio)
         
-//        self.view.backgroundColor = crossFade
+        self.view.backgroundColor = crossFade
     }
+    */
     
 
     // MARK: - Navigation

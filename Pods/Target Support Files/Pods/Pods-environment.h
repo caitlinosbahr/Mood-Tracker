@@ -30,9 +30,3 @@
 #define COCOAPODS_VERSION_MINOR_Parse 7
 #define COCOAPODS_VERSION_PATCH_Parse 1
 
-// UIColor-CrossFade
-#define COCOAPODS_POD_AVAILABLE_UIColor_CrossFade
-#define COCOAPODS_VERSION_MAJOR_UIColor_CrossFade 1
-#define COCOAPODS_VERSION_MINOR_UIColor_CrossFade 1
-#define COCOAPODS_VERSION_PATCH_UIColor_CrossFade 0
-

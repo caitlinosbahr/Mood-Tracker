@@ -7,15 +7,12 @@ PODS:
   - Bolts/Tasks (1.1.5)
   - Parse (1.7.1):
     - Bolts (~> 1.1)
-  - UIColor-CrossFade (1.1.0)
 
 DEPENDENCIES:
   - Parse
-  - UIColor-CrossFade (~> 1.1)
 
 SPEC CHECKSUMS:
   Bolts: aac24961496d504aa56fc267cde95162a71bac39
   Parse: fa8ec29de6d82035635986c11946299fb1b38316
-  UIColor-CrossFade: 1e0dd1329ae45c6298f2b6b10d2bffc1e5af5d20
 
 COCOAPODS: 0.36.4
